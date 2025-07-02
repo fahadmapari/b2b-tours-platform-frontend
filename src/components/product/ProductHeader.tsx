@@ -1,6 +1,6 @@
 const ProductHeader = () => {
   return (
-    <div>
+    <div className="my-4">
       <div className="text-3xl font-semibold">
         Salzburg Private Guided Walking Tour
       </div>

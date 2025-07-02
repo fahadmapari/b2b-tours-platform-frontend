@@ -11,6 +11,11 @@ export async function middleware(request: NextRequest) {
   const refreshToken = request.cookies.get("refreshToken");
   const { pathname } = request.nextUrl;
 
+  // If running on localhost, we want to allow local requests
+  if (request.headers.get("host") === "localhost:3000") {
+    return NextResponse.next();
+  }
+
   if (!protectedRoutes.includes(pathname)) {
     return NextResponse.next();
   }

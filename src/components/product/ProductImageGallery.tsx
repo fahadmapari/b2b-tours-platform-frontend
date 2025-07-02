@@ -20,6 +20,34 @@ const images: ReactImageGalleryItem[] = [
     thumbnail: "/tour.jpg",
     originalHeight: 400,
   },
+  {
+    original: "/tour.jpg",
+    thumbnail: "/tour.jpg",
+  },
+  {
+    original: "/tour.jpg",
+    thumbnail: "/tour.jpg",
+    originalHeight: 400,
+  },
+  {
+    original: "/tour.jpg",
+    thumbnail: "/tour.jpg",
+    originalHeight: 400,
+  },
+  {
+    original: "/tour.jpg",
+    thumbnail: "/tour.jpg",
+  },
+  {
+    original: "/tour.jpg",
+    thumbnail: "/tour.jpg",
+    originalHeight: 400,
+  },
+  {
+    original: "/tour.jpg",
+    thumbnail: "/tour.jpg",
+    originalHeight: 400,
+  },
 ];
 
 const ProductImageGallery = () => {

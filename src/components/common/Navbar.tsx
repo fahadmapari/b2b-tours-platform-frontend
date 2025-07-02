@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
       <div>
-        <h3>World Guide</h3>
+        <h3>LocalHost</h3>
       </div>
 
       <div className="flex gap-6 items-center">
