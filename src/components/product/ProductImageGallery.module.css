@@ -1,0 +1,18 @@
+.customProductGallery,
+.customProductGallery :global(.image-gallery-content),
+.customProductGallery :global(.image-gallery-thumbnails),
+.customProductGallery :global(.image-gallery-thumbnails-wrapper),
+.customProductGallery :global(.image-gallery-slide-wrapper),
+.customProductGallery :global(.image-gallery-swipe),
+.customProductGallery :global(.image-gallery-slides),
+.customProductGallery :global(.image-gallery-slide),
+.customProductGallery :global(.image-gallery-image) {
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center;
+}
+
+.customProductGallery :global(.image-gallery-slide-wrapper){
+  border-radius: 12px;
+  overflow: hidden;
+}

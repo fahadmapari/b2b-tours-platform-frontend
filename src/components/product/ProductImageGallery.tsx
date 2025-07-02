@@ -3,6 +3,7 @@
 import React from "react";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import styles from "./ProductImageGallery.module.css";
 
 const images: ReactImageGalleryItem[] = [
   {
@@ -23,8 +24,12 @@ const images: ReactImageGalleryItem[] = [
 
 const ProductImageGallery = () => {
   return (
-    <div className="!h-[407px]">
-      <ImageGallery items={images} thumbnailPosition="left" />
+    <div className="h-[50vh]">
+      <ImageGallery
+        items={images}
+        thumbnailPosition="left"
+        additionalClass={styles.customProductGallery}
+      />
     </div>
   );
 };

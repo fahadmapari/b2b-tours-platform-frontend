@@ -6,7 +6,7 @@ const ProductPage = () => {
   return (
     <div>
       <ProductHeader />
-      <div className="flex gap-4 items-start">
+      <div className="flex gap-14 items-start">
         <div className="flex-1">
           <ProductImageGallery />
         </div>
