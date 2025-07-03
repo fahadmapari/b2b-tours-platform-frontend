@@ -4,15 +4,8 @@ import ProductsList from "@/components/products/ProductsList";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import React from "react";
 
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 import SelectedSearchValues from "@/components/common/SelectedSearchValues";
+import CustomPagination from "@/components/common/CustomPagination";
 
 const page = () => {
   return (
@@ -31,31 +24,7 @@ const page = () => {
           <ProductsList />
         </ScrollArea>
       </div>
-      <Pagination className="py-2 justify-end">
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink className="text-white bg-green-900" href="#">
-              1
-            </PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink className="text-black bg-white" href="#">
-              2
-            </PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink className="text-black bg-white" href="#">
-              3
-            </PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+      <CustomPagination />
     </div>
   );
 };
