@@ -9,7 +9,7 @@ const ProductPage = () => {
   return (
     <div className="h-full flex flex-col">
       <ProductHeader />
-      <div className="h-full max-h-full overflow-hidden flex gap-6 items-start relative ">
+      <div className="h-full max-h-full overflow-hidden flex gap-6 items-start relative pb-4">
         <ScrollArea className="flex-1 h-full max-h-full">
           <ProductImageGallery />
 

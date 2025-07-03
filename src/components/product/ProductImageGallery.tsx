@@ -57,6 +57,7 @@ const ProductImageGallery = () => {
         items={images}
         thumbnailPosition="left"
         additionalClass={styles.customProductGallery}
+        lazyLoad={true}
       />
     </div>
   );

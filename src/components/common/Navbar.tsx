@@ -5,6 +5,10 @@ import { Button } from "../ui/button";
 import { useUserStore } from "@/store/userStore";
 import { clearJWT } from "@/lib/utils";
 import Cart from "./Cart";
+import { Avatar, AvatarFallback } from "../ui/avatar";
+import { Popover, PopoverTrigger } from "../ui/popover";
+import { PopoverContent } from "@radix-ui/react-popover";
+import { Separator } from "../ui/separator";
 
 const Navbar = () => {
   const { isAuthenticated, setIsAuthenticated } = useUserStore();
@@ -29,7 +33,7 @@ const Navbar = () => {
       <div className="flex items-center gap-4">
         <Cart />
 
-        {!isAuthenticated ? (
+        {isAuthenticated ? (
           <div className="flex gap-4 items-center uppercase">
             <Link href="/login">
               <Button className="uppercase cursor-pointer" variant="outline">
@@ -42,14 +46,48 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex gap-4 items-center">
-            <span>Hi, User</span>
-            <Button
-              variant="outline"
-              className="cursor-pointer"
-              onClick={handleLogout}
-            >
-              Logout
-            </Button>
+            <Popover>
+              <PopoverTrigger>
+                <div>
+                  <Avatar className="cursor-pointer">
+                    <AvatarFallback className="bg-green-900 text-white font-medium text-xs">
+                      CN
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
+              </PopoverTrigger>
+              <PopoverContent className="relative z-20">
+                <div className="bg-white mt-1 mr-4 rounded-lg py-4 flex flex-col gap-2">
+                  <div className="mx-4 flex items-center gap-2">
+                    <Avatar className="cursor-pointer">
+                      <AvatarFallback className="bg-green-900 text-white font-medium text-xs">
+                        CN
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col">
+                      <span className="text-base font-medium">John Doe</span>
+                      <span className="text-sm">user@gmail.com</span>
+                    </div>
+                  </div>
+
+                  <Separator />
+
+                  <Link className="pb-1 mx-4" href={"/profile"}>
+                    Profile
+                  </Link>
+
+                  <Separator />
+
+                  <Button
+                    variant="outline"
+                    className="cursor-pointer mx-4 bg-red-400 text-white"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
         )}
       </div>

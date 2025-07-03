@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ProductCard from "./ProductCard";
 
 const PRODUCTS = [
@@ -8,7 +9,9 @@ const ProductsList = () => {
   return (
     <div className="flex flex-col gap-4">
       {PRODUCTS.map((p) => (
-        <ProductCard key={p} />
+        <Link href={`/products/${p}`} key={p}>
+          <ProductCard />
+        </Link>
       ))}
     </div>
   );

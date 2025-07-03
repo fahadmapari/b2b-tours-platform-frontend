@@ -128,3 +128,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.required::after {
+  content: ' *'
+  @apply text-red-500;
+}

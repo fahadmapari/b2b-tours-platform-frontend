@@ -18,7 +18,7 @@ interface ProductInfoTabsProps {
 function ProductInfoTabs({ activeTab, setActiveTab }: ProductInfoTabsProps) {
   return (
     <Tabs
-      className="w-full sticky top-4 z-10"
+      className="w-full sticky top-0 z-10"
       value={activeTab}
       onValueChange={setActiveTab}
     >
@@ -33,7 +33,7 @@ function ProductInfoTabs({ activeTab, setActiveTab }: ProductInfoTabsProps) {
                 ?.scrollIntoView({ behavior: "smooth", block: "center" });
             }}
             className={cn(
-              activeTab === section && "!bg-green-700 text-white",
+              activeTab === section && "!bg-green-900 text-white",
               "py-5 cursor-pointer text-base font-medium bg-white"
             )}
           >
