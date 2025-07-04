@@ -1,21 +1,16 @@
 "use client";
 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import DatePicker from "../common/DatePicker";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import CountrySelectorV2 from "../common/CountrySelector";
+import CitySelectorV2 from "../common/CitySelector";
+
 import useSWR from "swr";
 import axios from "axios";
+import { Search } from "lucide-react";
 
 interface CountryCityType {
   name: string;
@@ -46,97 +41,38 @@ const SearchBlock = () => {
   );
 
   return (
-    <div className="w-[800px] p-4 border border-gray-300 rounded-lg  bg-white">
-      <div className="text-center text-2xl font-semibold pb-4">
-        Welcome, John Doe.
-      </div>
-      <div className="flex items-center gap-4">
-        <CountrySelector
-          countries={countriesAndCities?.countries}
-          selectedCountry={selectedCountry}
-          setSelectedCountry={(country: string) => setSelectedCountry(country)}
-        />
-        <CitySelector
-          selectedCity={selectedCity}
-          setSelectedCity={(city: string) => setSelectedCity(city)}
-          selectedCountry={selectedCountry}
-          cities={countriesAndCities?.cities}
-        />
-        <DatePicker />
-        <Button
-          className="flex-1 cursor-pointer"
-          onClick={() => push("/products")}
-        >
-          Search
-        </Button>
+    <div className="p-6 bg-white/20 backdrop-blur-xs rounded-3xl">
+      <div className="w-[800px] p-3 border border-gray-300 rounded-full  bg-white">
+        <div className="w-full flex items-center gap-4">
+          <div className="flex-1">
+            <CountrySelectorV2
+              countries={countriesAndCities?.countries}
+              selectedCountry={selectedCountry}
+              setSelectedCountry={(country: string) =>
+                setSelectedCountry(country)
+              }
+            />
+          </div>
+          <div className="flex-1">
+            <CitySelectorV2
+              selectedCity={selectedCity}
+              setSelectedCity={(city: string) => setSelectedCity(city)}
+              cities={countriesAndCities?.cities[selectedCountry]}
+            />
+          </div>
+          <div className="flex-1">
+            <DatePicker />
+          </div>
+          <Button
+            className="flex items-center gap-2 cursor-pointer rounded-full  py-6 px-4 bg-green-900"
+            onClick={() => push("/products")}
+          >
+            <Search />
+            <span className="text-lg">Search</span>
+          </Button>
+        </div>
       </div>
     </div>
-  );
-};
-
-const CountrySelector = ({
-  countries,
-  selectedCountry,
-  setSelectedCountry,
-}: {
-  countries?: string[];
-  selectedCountry: string;
-  setSelectedCountry: (country: string) => void;
-}) => {
-  return (
-    <Select value={selectedCountry} onValueChange={setSelectedCountry}>
-      <SelectTrigger className="w-full">
-        <SelectValue placeholder="Country" />
-      </SelectTrigger>
-      <SelectContent className="max-h-56">
-        <SelectGroup>
-          <SelectLabel>Countries</SelectLabel>
-          {countries ? (
-            countries.map((country) => (
-              <SelectItem value={country} key={country}>
-                {country}
-              </SelectItem>
-            ))
-          ) : (
-            <span>No countries found</span>
-          )}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  );
-};
-
-const CitySelector = ({
-  selectedCountry,
-  selectedCity,
-  setSelectedCity,
-  cities,
-}: {
-  selectedCountry: string;
-  selectedCity: string;
-  setSelectedCity: (city: string) => void;
-  cities?: Record<string, string[]>;
-}) => {
-  return (
-    <Select value={selectedCity} onValueChange={setSelectedCity}>
-      <SelectTrigger className="w-full">
-        <SelectValue placeholder="City" />
-      </SelectTrigger>
-      <SelectContent className="max-h-56">
-        <SelectGroup>
-          <SelectLabel>Cities</SelectLabel>
-          {cities ? (
-            cities[selectedCountry]?.map((city) => (
-              <SelectItem value={city} key={city}>
-                {city}
-              </SelectItem>
-            ))
-          ) : (
-            <span>No cities found</span>
-          )}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
   );
 };
 
