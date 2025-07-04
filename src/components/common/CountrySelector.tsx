@@ -35,7 +35,7 @@ function CountrySelector({
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger className="w-full" asChild>
+      <PopoverTrigger className="w-full cursor-pointer" asChild>
         <div className="w-full flex items-center gap-2">
           <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
             <BsGlobeCentralSouthAsia />

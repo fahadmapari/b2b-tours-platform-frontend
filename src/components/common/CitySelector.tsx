@@ -34,7 +34,7 @@ function CitySelector({
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger className="w-full" asChild>
+      <PopoverTrigger className="w-full cursor-pointer" asChild>
         <div className="w-full flex items-center gap-2">
           <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
             <FaMapMarkedAlt />
@@ -50,7 +50,7 @@ function CitySelector({
       </PopoverTrigger>
       <PopoverContent className="w-full max-h-56 p-0">
         <Command className="max-h-56">
-          <CommandInput placeholder="Search country..." className="h-9" />
+          <CommandInput placeholder="Search city..." className="h-9" />
           <CommandList>
             <CommandEmpty>No city found.</CommandEmpty>
             <CommandGroup>

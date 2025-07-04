@@ -41,7 +41,7 @@ const ProductsHeader = () => {
 
   return (
     <div className="flex justify-between items-center my-6">
-      <h2>Products</h2>
+      <h2 className="text-3xl font-bold">Local Guided Tours</h2>
 
       <div className="flex gap-2 items-center">
         <Button className="cursor-pointer" onClick={() => setShowFilters()}>

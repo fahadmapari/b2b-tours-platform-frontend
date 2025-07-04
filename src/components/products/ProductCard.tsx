@@ -76,7 +76,7 @@ const ProductCard = () => {
               </div>
             </div>
             <div className="flex items-center gap-1 text-lg font-medium">
-              <span className="text-sm font-normal">Price:</span> $100
+              <span className="text-sm font-normal">Price:</span> $100/Guide
             </div>
           </div>
         </div>

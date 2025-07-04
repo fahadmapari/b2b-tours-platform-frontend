@@ -12,13 +12,16 @@ import {
 
 import * as React from "react";
 
-export default function DatePicker() {
-  const [date, setDate] = React.useState<Date>();
+interface DatePickerProps {
+  date: Date;
+  setDate: (date: Date) => void;
+}
 
+export default function DatePicker({ date, setDate }: DatePickerProps) {
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <div className="w-full flex items-center gap-2">
+      <PopoverTrigger className="cursor-pointer" asChild>
+        <div className="w-full flex items-center gap-2 ">
           <div className="w-10 h-10 bg-green-50 rounded-full flex justify-center items-center">
             <CalendarIcon />
           </div>
@@ -35,7 +38,7 @@ export default function DatePicker() {
         <Calendar
           mode="single"
           selected={date}
-          onSelect={setDate}
+          onSelect={(date) => setDate(date || new Date())}
           initialFocus
           fromDate={new Date()}
         />

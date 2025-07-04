@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Footer from "@/components/common/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default async function RootLayout({
         <Navbar />
         <main className="px-6 flex-1 overflow-y-hidden">{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
