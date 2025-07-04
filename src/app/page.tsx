@@ -5,14 +5,15 @@ export default function Home() {
   return (
     <div className="h-full flex flex-col items-center justify-center flex-1">
       <SearchBlock />
-      <div className="fixed w-full h-full top-0 left-0 -z-10 ">
+      {/* TODO: MAKE IMAGE BETTER LATER */}
+      {/* <div className="fixed w-full h-full top-0 left-0 -z-10 ">
         <Image
           alt="bg"
           src="/images/background.jpg"
           layout="fill"
           loading="lazy"
         />
-      </div>
+      </div> */}
     </div>
   );
 }
